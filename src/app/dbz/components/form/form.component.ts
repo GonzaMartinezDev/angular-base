@@ -11,16 +11,14 @@ export class FormComponent {
   public onNewCharacter: EventEmitter<Character> = new EventEmitter();
 
   public character: Character = {
+    id:'',
     name: '',
     power: 0,
   };
 
   showCharacter(): void {
     console.log(this.character);
-
-    // debugger;
     this.onNewCharacter.emit(this.character);
-
-    this.character = { name: '', power: 0 };
+    // this.character = { id: '', name: '', power: 0 };
   }
 }

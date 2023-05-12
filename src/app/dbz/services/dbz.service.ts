@@ -4,6 +4,7 @@ import { Character } from '../interfaces/character.interface';
 
 @Injectable({ providedIn: 'root' })
 export class DbzService {
+
   public characters: Character[] = [
     {
       id: uuid(),
@@ -22,20 +23,20 @@ export class DbzService {
     },
   ];
 
-  deleteCharter(index: number) {
-    this.characters.splice(index, 1);
-    console.log({index});
-  }
-
-  // deleteCharterId(id: string) {
-  //   this.characters = this.characters.filter( character => character.id !== id);
+  // deleteCharter(id: string) {
+  //   // this.characters.splice(index, 1);
+  //   console.log({id});
   // }
 
-  onNewCharacter(character: Character): void {
+  deleteCharterId(id: string) {
+    this.characters = this.characters.filter( character => character.id !== id);
+  }
 
-    const newCharacter: Character = {
-        id: uuid(), ...character
-    }
-    this.characters.push(newCharacter);
+  addCharacter(character: Character): void {
+
+    // const newCharacter: Character = {
+    //     id: uuid(), ...character
+    // }
+    this.characters.push(character);
   }
 }
